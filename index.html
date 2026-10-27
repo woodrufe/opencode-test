@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WSL File Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Find Your WSL Files</h1>
+    <button id="theme-btn" aria-label="Toggle dark/light mode">Dark mode</button>
+  </header>
+
+  <section class="intro">
+    <p>
+      When working on Windows with a Linux subsystem (WSL), locating your distro's
+      files can be confusing. This page shows you quick ways to find them — either
+      through Windows Explorer or by using well‑known paths.
+    </p>
+  </section>
+
+  <section class="content">
+    <h2 id="explorer">Finding files in Windows Explorer</h2>
+    <p>
+      <strong>Three common methods:</strong>
+    </p>
+    <ul>
+      <li>
+        <span class="path">\\<code>wsl$</code>\<em>DistroName</em>\ — open a file explorer
+        address bar (⌘L or ⊞ + L), type <code>\\wsl$\DistroName</code> and press Enter.
+      </li>
+      <li>
+        Navigate to <code>C:\Users\%USERNAME%\AppData\Local\Packages\</code> and open
+        the folder matching your distro name (e.g. <code>Ubuntu-22.04_<em>xxxx</em></code>).
+      </li>
+      <li>
+        From a WSL terminal, use <code>wslpath</code> or your file manager to
+        locate distro files; the Linux `explorer.exe` command is not available
+        on native Windows.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content">
+    <h2 id="paths">Common paths</h2>
+    <p>
+      Typical locations your distro data lives (replace <em>DistroName</em> with your
+      actual distribution name):
+    </p>
+    <dl>
+      <dt>From Explorer (\\wsl$)</dt>
+      <dd>
+        <code>\\wsl$\DistroName</code> — shows the default filesystem root of the
+        running distro.
+      </dd>
+
+      <dt>From the user profile folder</dt>
+      <dd>
+        <code>%APPDATA%\local\packages\DistroName\local-state\</code> — home
+        directory files (documents, pictures, etc.).
+      </dd>
+
+      <dt>Distro install directory</dt>
+      <dd>
+        <code>%APPDATA%\local\packages\DistroName\</code> — where the package
+        filesystem is mounted.
+      </dd>
+
+      <dt>From a WSL terminal</dt>
+      <dd>
+        From the WSL command line, your distro home is at <code>~</code>; use
+        your distro's file manager or <code>wslpath</code> to browse files from
+        Windows.
+      </dd>
+    </dl>
+  </section>
+
+  <footer>
+    <p>
+      © 2026 WSL File Finder • Built with HTML/CSS/JS only, no dependencies.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
