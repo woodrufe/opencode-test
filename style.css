@@ -1,4 +1,4 @@
-/* ==== Dark theme, responsive, keyboard-friendly ==== */
+/* ==== Dark theme, keyboard-friendly ==== */
 /* No build steps, no CDN — works as-is. */
 
 /* CSS variables for the dark theme */
@@ -28,6 +28,7 @@ body {
   color: var(--fg);
   margin: 0;
   line-height: 1.5;
+  text-align: center;
 }
 
 /* Remove default outline, add focus-visible when keyboard-focused */
@@ -37,7 +38,7 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Make focus ring invisible for mouse users */
+/* Make focus ring visible for mouse users */
 button:focus-visible,
 a:focus-visible {
   background: var(--accent);
@@ -50,18 +51,16 @@ a:focus-visible {
 h1, h2, h3 {
   margin: 1.5em 0 0.5em;
   line-height: 1.2;
-  color: var(--accent2);
 }
 
 /* ==== Layout ==== */
 header {
   padding: 1rem 1.5rem;
   background: var(--card);
-  text-align: center;
-  border-bottom: 2px solid var(--accent);
   margin-bottom: 1rem;
 }
 
+/* Theme button */
 button#theme-btn {
   position: relative;
   top: -0.5rem;
@@ -81,34 +80,18 @@ button#theme-btn:hover {
   color: var(--accent2);
 }
 
-/* ==== Two-column adapt: narrow < 600px, wide > 600px ==== */
-@media (max-width: 600px) {
-  .content {
-    padding: 1rem 1.5rem;
-    text-align: center;
-  }
-  .content dl {
-    margin: 0 auto;
-    max-width: 90%;
-  }
-  .content dl dt,
-  .content dl dd {
-    padding: 0 1rem;
-    margin-bottom: 1rem;
-    text-align: left;
-    max-width: 100%;
-  }
+/* Content container – fixed 600px width, centered */
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
 }
 
-@media (min-width: 601px) {
-  .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-  }
+/* Images and figures inside content */
+.content figure {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
 }
 
 /* ==== Reduce motion if user prefers ==== */

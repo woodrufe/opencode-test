@@ -21,25 +21,22 @@
   </section>
 
   <section class="content">
-    <h2 id="explorer">Finding files in Windows Explorer</h2>
-    <p>
-      <strong>Three common methods:</strong>
-    </p>
+    <h2 id="explorer">Finding your Files without Powershell</h2>
+    <p>In Windows File Explorer, you can reach your distro's home folder by following this path:</p>
     <ul>
-      <li>
-        <span class="path">\\<code>wsl$</code>\<em>DistroName</em>\ — open a file explorer
-        address bar (⌘L or ⊞ + L), type <code>\\wsl$\DistroName</code> and press Enter.
-      </li>
-      <li>
-        Navigate to <code>C:\Users\%USERNAME%\AppData\Local\Packages\</code> and open
-        the folder matching your distro name (e.g. <code>Ubuntu-22.04_<em>xxxx</em></code>).
-      </li>
-      <li>
-        From a WSL terminal, use <code>wslpath</code> or your file manager to
-        locate distro files; the Linux `explorer.exe` command is not available
-        on native Windows.
-      </li>
+      <li>Linux → Ubuntu → home → <em>[Your User Name]</em></li>
     </ul>
+    <figure>
+      <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="200" fill="#1a1c24"/>
+        <rect x="50" y="40" width="100" height="120" fill="#00d4b1" rx="8"/>
+        <rect x="180" y="40" width="100" height="120" fill="#00d4b1" rx="8"/>
+        <text x="200" y="190" font-family="system-ui, sans-serif" font-size="16" fill="#e0e8f0" text-anchor="middle">
+          Example Windows File Explorer
+        </text>
+      </svg>
+      <figcaption style="text-align:center; color:#7a8aad; font-size:0.8rem; margin-top:4px;">Example: navigating Linux → Ubuntu → home → [User]</figcaption>
+    </figure>
   </section>
 
   <section class="content">
