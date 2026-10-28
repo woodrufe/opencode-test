@@ -1,0 +1,104 @@
+/* ==== Dark theme, keyboard-friendly ==== */
+/* No build steps, no CDN — works as-is. */
+
+/* CSS variables for the dark theme */
+:root {
+  --bg: #11131a;
+  --fg: #e0e8f0;
+  --muted: #7a8aad;
+  --accent: #00d4b1;
+  --card: #1a1c24;
+  --accent2: #6c5ce7;
+}
+
+/* Light theme contrast (swapped by script.js) */
+.light {
+  --bg: #f0f4f8;
+  --fg: #1a1c26;
+  --muted: #5a6a8a;
+  --accent: #006659;
+  --card: #ffffff;
+  --accent2: #6a4c93;
+}
+
+/* Page background */
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Remove default outline, add focus-visible when keyboard-focused */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px var(--accent) solid;
+  outline-offset: 2px;
+}
+
+/* Make focus ring visible for mouse users */
+button:focus-visible,
+a:focus-visible {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Basic typography */
+h1, h2, h3 {
+  margin: 1.5em 0 0.5em;
+  line-height: 1.2;
+}
+
+/* ==== Layout ==== */
+header {
+  padding: 1rem 1.5rem;
+  background: var(--card);
+  margin-bottom: 1rem;
+}
+
+/* Theme button */
+button#theme-btn {
+  position: relative;
+  top: -0.5rem;
+  margin-left: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+button#theme-btn:hover {
+  background: var(--muted);
+  color: var(--accent2);
+}
+
+/* Content container – fixed 600px width, centered */
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+/* Images and figures inside content */
+.content figure {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+}
+
+/* ==== Reduce motion if user prefers ==== */
+@media (prefers-reduced-motion: reduce) {
+  button#theme-btn,
+  .content dl dt,
+  .content dl dd {
+    transition: none;
+  }
+}

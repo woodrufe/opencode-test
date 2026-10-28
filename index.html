@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WSL File Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Find Your WSL Files</h1>
+    <button id="theme-btn" aria-label="Toggle dark/light mode">Dark mode</button>
+  </header>
+
+  <section class="intro">
+    <p>
+      When working on Windows with a Linux subsystem (WSL), locating your distro's
+      files can be confusing. This page shows you quick ways to find them — either
+      through Windows Explorer or by using well‑known paths.
+    </p>
+  </section>
+
+  <section class="content">
+    <h2 id="explorer">Finding your Files without Powershell</h2>
+    <p>In Windows File Explorer, you can reach your distro's home folder by following this path:</p>
+    <ul>
+      <li>Linux → Ubuntu → home → <em>[Your User Name]</em></li>
+    </ul>
+    <figure>
+      <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="200" fill="#1a1c24"/>
+        <rect x="50" y="40" width="100" height="120" fill="#00d4b1" rx="8"/>
+        <rect x="180" y="40" width="100" height="120" fill="#00d4b1" rx="8"/>
+        <text x="200" y="190" font-family="system-ui, sans-serif" font-size="16" fill="#e0e8f0" text-anchor="middle">
+          Example Windows File Explorer
+        </text>
+      </svg>
+      <figcaption style="text-align:center; color:#7a8aad; font-size:0.8rem; margin-top:4px;">Example: navigating Linux → Ubuntu → home → [User]</figcaption>
+    </figure>
+  </section>
+
+  <section class="content">
+    <h2 id="paths">Common paths</h2>
+    <p>
+      Typical locations your distro data lives (replace <em>DistroName</em> with your
+      actual distribution name):
+    </p>
+    <dl>
+      <dt>From Explorer (\\wsl$)</dt>
+      <dd>
+        <code>\\wsl$\DistroName</code> — shows the default filesystem root of the
+        running distro.
+      </dd>
+
+      <dt>From the user profile folder</dt>
+      <dd>
+        <code>%APPDATA%\local\packages\DistroName\local-state\</code> — home
+        directory files (documents, pictures, etc.).
+      </dd>
+
+      <dt>Distro install directory</dt>
+      <dd>
+        <code>%APPDATA%\local\packages\DistroName\</code> — where the package
+        filesystem is mounted.
+      </dd>
+
+      <dt>From a WSL terminal</dt>
+      <dd>
+        From the WSL command line, your distro home is at <code>~</code>; use
+        your distro's file manager or <code>wslpath</code> to browse files from
+        Windows.
+      </dd>
+    </dl>
+  </section>
+
+  <footer>
+    <p>
+      © 2026 WSL File Finder • Built with HTML/CSS/JS only, no dependencies.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
